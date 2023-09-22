@@ -67,15 +67,13 @@ const Problem2 = () => {
     }
   };
 
-  console.log(filterData);
-
   useEffect(() => {
     getAllContacts();
     getUSContacts();
   }, []);
 
   useEffect(() => {
-    if (filterData.length > 0) {
+    if (filterData?.length > 0) {
       setFilterData(filterData);
     } else {
       setFilterData(allContacts);
@@ -121,7 +119,7 @@ const Problem2 = () => {
             />
           </Form>
 
-          {filterData?.results.length > 0 &&
+          {filterData?.results?.length > 0 &&
             filterData?.results.map((cn) => (
               <div key={cn?.id}>
                 <p
@@ -179,7 +177,7 @@ const Problem2 = () => {
         </Modal.Header>
         <Modal.Body>
           <Form.Control placeholder="Search..." type="text" className="mb-2" />
-          {usContacts?.results.length > 0 ? (
+          {usContacts?.results?.length > 0 ? (
             usContacts?.results.map((cn) => (
               <p key={cn?.id}>Phone: {cn?.phone}</p>
             ))
